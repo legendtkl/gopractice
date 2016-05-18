@@ -16,10 +16,11 @@ func main() {
 	b, _ := json.Marshal(m)
 	fmt.Println(string(b))
 
-	b := []byte('{"Name":"Bob", "Food":"Pickle"}')
-	var msg Message
-	if err := json.Unmarshal(b, &m); err!=nil {
+	b = []byte(`{"Name":"Bob", "Food":"Pickle"}`)
+	msg := &Message{}
+	if err := json.Unmarshal(b, msg); err != nil {
 		fmt.Println("Error")
 	}
-	fmt.Println(string(msg))
+	fmt.Println(string(msg.Name))
+	fmt.Println(string(msg.Body))
 }
